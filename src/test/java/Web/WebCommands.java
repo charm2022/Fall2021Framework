@@ -13,6 +13,7 @@ import java.util.Set;
 public class WebCommands {
 
     public WebElement getElement(By locator) {
+
         return (WebElement) UseDriver.getDriver().findElement(locator);
     }
 
@@ -30,7 +31,10 @@ public class WebCommands {
     }
 
     public WebElement getElementWithWait(By locator) {
-        Wait fWait = new FluentWait(UseDriver.getDriver()).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(1)).ignoring(NoAlertPresentException.class).ignoring(StaleElementReferenceException.class).withMessage("Element is not found within 30 seconds");
+        Wait fWait = new FluentWait(UseDriver.getDriver()).withTimeout(Duration
+                .ofSeconds(30)).pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoAlertPresentException.class).ignoring(StaleElementReferenceException.class)
+                .withMessage("Element is not found within 30 seconds");
 
         WebElement element = (WebElement) fWait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
@@ -40,12 +44,12 @@ public class WebCommands {
         return element;
     }
 
-    public List<org.openqa.selenium.WebElement> getElements(By locator) {
+    public List<WebElement> getElements(By locator) {
         return UseDriver.getDriver().findElements(locator);
     }
 
     public void type(By locator, String data) {
-        getElementWithWait(locator).sendKeys(data);
+        getElementWithScroll(locator).sendKeys(data);
         Misc.sleep(2);
     }
 
@@ -80,6 +84,7 @@ public class WebCommands {
     }
 
     public void switchToHandle(String handle) {
+
         UseDriver.getDriver().switchTo().window(handle);
     }
 
