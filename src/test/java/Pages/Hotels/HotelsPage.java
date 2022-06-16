@@ -116,8 +116,8 @@ public class HotelsPage extends WebCommands {
         type(searchBoxLocator, searchText);
     }
 
-    public void selectFromSearchSuggestions(By destinationName, String destinationNamee) {
-        clickOneOfElementsUsingText(allSuggestionsLocator, destinationNamee);
+    public void selectFromSearchSuggestions(String destinationName) {
+        clickOneOfElementsUsingText(allSuggestionsLocator, destinationName);
     }
 
     public void enterDestination(String destination) {

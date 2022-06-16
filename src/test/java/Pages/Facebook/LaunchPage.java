@@ -1,8 +1,10 @@
 package Pages.Facebook;
 
+import Helper.Misc;
 import Web.WebCommands;
 import Web.UseDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class LaunchPage extends WebCommands {
     By allLinksLocator = By.tagName("a");
     By facebookPayLocator = By.linkText("Facebook Pay");
     By invalidLoginErrorLocator = By.xpath("//div[text()='The email or mobile number you entered isn’t connected to an account. ']");
-
+    By userLoggedInLocator = By.xpath("//input[@placeholder='Search Facebook']");
 
     // Methods to interact with elements of Launch Page
 
@@ -39,7 +41,9 @@ public class LaunchPage extends WebCommands {
 
     // click login button
     public void clickLoginButton() {
+
         UseDriver.getDriver().findElement(loginButtonLocator).click();
+        Misc.sleep(10);
     }
 
     // if login button is enabled
@@ -73,5 +77,8 @@ public class LaunchPage extends WebCommands {
         );
 
     }
+      public boolean isSearchFacebookDisplayed() {
 
+        return isWebElementDisplayed(userLoggedInLocator);
+    }
 }
