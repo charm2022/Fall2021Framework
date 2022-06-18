@@ -26,7 +26,7 @@ public class UseDriver {
      if you work for one website, shall create a method to open url automatically without entering the
      website before working on a test case. So you do not even Write Background/Given.
      */
-    @Before
+   // @Before
     public static void openUrl(){
         System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
         driver =  new ChromeDriver();
@@ -43,7 +43,7 @@ public class UseDriver {
     /*if you work for one website, shall add Before and After to launch url or quit url. So in my Facebook
     * Login feature, I do not have to launch the website nor quit it. These two methods shall kick off
     * automatically . In summary, any method with  @Before or @After annotation will execute before every scenario.*/
-    @After
+    //@After
     public static void quitWebPages(){
 
         driver.quit();

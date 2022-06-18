@@ -12,8 +12,6 @@ Feature: Book a Hotel
   @sanity
   Scenario: Check for lowest possible rates
 
-
-
     Then I sort search result from low to high
     And I verify the lowest price is less or equal to One hundred
     Then I Close the Browser
